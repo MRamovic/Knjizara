@@ -1,0 +1,54 @@
+﻿<Window x:Class="Knjizara.Windows.Clanovi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Knjizara.Windows"
+        mc:Ignorable="d"
+        Title="Clanovi" Height="450" Width="800">
+    <DockPanel >
+    <TabControl DockPanel.Dock="Top" >
+        <TabItem Header=" Info" FontSize=" 40">
+    
+        <UniformGrid Columns=" 2" DockPanel.Dock="Top" >
+            <Label Content="Ime" FontSize=" 40"/>
+            <TextBox FontSize=" 40"/>
+            <Label Content="Prezime" FontSize=" 40"/>
+            <TextBox FontSize=" 40" />
+            <Label Content="Kontakt tel." FontSize =" 40"/>
+            <TextBox FontSize="  40" />
+            <Label Content="e-mail" FontSize=" 40"/>
+            <TextBox FontSize=" 40" />
+        </UniformGrid>
+       
+        </TabItem>
+        
+            <TabItem  Header=" Trenutno zaduzenje" FontSize=" 40">
+                <DataGrid Name ="dgTrenutnoZ" FontSize=" 40"/>
+            </TabItem>
+        
+            <TabItem Header=" Novo zaduzenje" FontSize=" 40">
+                <StackPanel >
+                <DataGrid Name ="dgKnjige" FontSize=" 42"/>
+                <UniformGrid Columns=" 2">
+                    <Button Content="Dodaj" FontSize=" 42"/>
+                        <Button Content=" Izbrisi" FontSize=" 42"/>
+                    </UniformGrid>
+                    <DataGrid Name ="dgNovoZ" FontSize=" 42"/>
+                </StackPanel>
+            </TabItem>
+        
+    </TabControl>
+
+        <UniformGrid Columns=" 2" DockPanel.Dock="Bottom" >
+            <Button Content=" Sacuvaj" FontSize=" 42"/>
+            <Button Content=" Izadji" FontSize ="42"/>
+
+        </UniformGrid>
+    </DockPanel>
+   
+
+
+
+
+</Window>

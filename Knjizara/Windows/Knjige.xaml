@@ -1,0 +1,28 @@
+﻿<Window x:Class="Knjizara.Windows.Knjige"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Knjizara.Windows"
+        mc:Ignorable="d"
+        Title="Knjige" Height="450" Width="800">
+    <DockPanel >
+        <UniformGrid Columns=" 2" DockPanel.Dock="Top" >
+            <Label Content="Naziv"  FontSize=" 40"/>
+            <TextBox FontSize=" 40" />
+            <Label Content="Autor" FontSize=" 40"/>
+            <TextBox  FontSize=" 40" />
+            <Label Content="Godina izdavanja" FontSize=" 40"/>
+            <TextBox  FontSize=" 40" />
+            <Label Content="ISBN" FontSize=" 40"/>
+            <TextBox  FontSize=" 40" />
+            <Label Content=" Kolicina" FontSize=" 40"/>
+            <TextBox FontSize ="40" />
+        </UniformGrid>
+        <UniformGrid Columns=" 2" DockPanel.Dock="Bottom" >
+            <Button Content=" Sacuvaj" FontSize ="42"/>
+            <Button Content=" Izadji" FontSize=" 42"/>
+        </UniformGrid>
+       
+    </DockPanel>
+</Window>
