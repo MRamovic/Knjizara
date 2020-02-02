@@ -15,26 +15,25 @@ using System.Windows.Shapes;
 namespace Knjizara.Windows
 {
     /// <summary>
-    /// Interaction logic for Knjige.xaml
+    /// Interaction logic for ClanProfil.xaml
     /// </summary>
-    public partial class Knjige : Window
+    public partial class ClanProfil : Window
     {
-        public Knjige()
+        public ClanProfil()
         {
-            InitializeComponent();
-        }
-
-
-        private void Izadji_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = false;
-            this.Close();
-        }
+            InitializeComponent();    
+        }       
 
         private void Sacuvaj_Click(object sender, RoutedEventArgs e)
         {
             this.BindingGroup.CommitEdit();
             this.DialogResult = true;
+            this.Close();     
+        }
+
+        private void Izadji_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
             this.Close();
         }
     }

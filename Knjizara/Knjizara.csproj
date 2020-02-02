@@ -65,8 +65,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Klase\NadjiArtikal.cs" />
     <Compile Include="Windows\Clanovi.xaml.cs">
       <DependentUpon>Clanovi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ClanProfil.xaml.cs">
+      <DependentUpon>ClanProfil.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Dodaj.xaml.cs">
       <DependentUpon>Dodaj.xaml</DependentUpon>
@@ -90,6 +94,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\Clanovi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ClanProfil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

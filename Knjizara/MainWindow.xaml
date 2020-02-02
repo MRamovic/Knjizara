@@ -13,8 +13,9 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                 
                     <Button Content="Dodaj" FontSize=" 42" Margin=" 20,0" Click="Dodaj_Click" />
-                    <Button Content="Izmeni" FontSize=" 42" Margin=" 20,0"/>
-                    <Button Content="Ukloni" FontSize=" 42" Margin=" 20,0"/>
+                <Button Content=" Izmeni" FontSize ="42" Margin="20,0" Click="Izmeni_Click"/>
+                <Button Content="Izbrisi" FontSize=" 42" Margin=" 20,0" Click="Izbrisi_Click"/>
+                <Button Content="Izadji" FontSize=" 42" Margin=" 20,0" Click="Izadji_Click"/>
                 
             </StackPanel>
 
@@ -33,13 +34,13 @@
             
             <TabItem Header=" Clan" FontSize=" 42">
 
-                <DataGrid Name ="dgClan" FontSize="42" ColumnWidth="*" IsReadOnly="True" />
+                <DataGrid Name ="dgClan" FontSize="42" ColumnWidth="*" IsReadOnly="True" SelectionMode="Single" MouseDoubleClick="dgClan_MouseDoubleClick"     />
 
             </TabItem>
             
             <TabItem Header="Knjiga" FontSize=" 42">
 
-                <DataGrid Name ="dgKnjiga" FontSize="42" ColumnWidth="*" IsReadOnly="True" />
+                <DataGrid Name ="dgKnjiga" FontSize="42" ColumnWidth="*" IsReadOnly="True" SelectionMode="Single" MouseDoubleClick="dgKnjiga_MouseDoubleClick"   />
                 
             </TabItem>
 

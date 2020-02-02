@@ -19,9 +19,28 @@ namespace Knjizara.Windows
     /// </summary>
     public partial class Clanovi : Window
     {
+       
+
         public Clanovi()
         {
-            InitializeComponent();
+            InitializeComponent();  
+        }
+
+
+        private void Izadji_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+            this.Close();
+        }
+
+
+        private void Sacuvaj_Click(object sender, RoutedEventArgs e)
+        {
+            this.BindingGroup.CommitEdit();
+            this.DialogResult = true;
+            this.Close();
+            
+
         }
     }
 }

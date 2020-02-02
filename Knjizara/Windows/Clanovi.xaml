@@ -6,43 +6,49 @@
         xmlns:local="clr-namespace:Knjizara.Windows"
         mc:Ignorable="d"
         Title="Clanovi" Height="450" Width="800">
+    <Window.BindingGroup>
+        <BindingGroup/>
+    </Window.BindingGroup>
     <DockPanel >
     <TabControl DockPanel.Dock="Top" >
         <TabItem Header=" Info" FontSize=" 40">
     
         <UniformGrid Columns=" 2" DockPanel.Dock="Top" >
             <Label Content="Ime" FontSize=" 40"/>
-            <TextBox FontSize=" 40"/>
+                    <TextBox FontSize=" 40" Text ="{ Binding  Ime, UpdateSourceTrigger=Explicit}"/>
             <Label Content="Prezime" FontSize=" 40"/>
-            <TextBox FontSize=" 40" />
+                    <TextBox FontSize=" 40" Text ="{ Binding  Prezime, UpdateSourceTrigger=Explicit}" />
             <Label Content="Kontakt tel." FontSize =" 40"/>
-            <TextBox FontSize="  40" />
+                    <TextBox FontSize="  40" Text ="{ Binding  Kontakt, UpdateSourceTrigger=Explicit}"/>
             <Label Content="e-mail" FontSize=" 40"/>
-            <TextBox FontSize=" 40" />
+                    <TextBox FontSize=" 40" Text ="{ Binding  Email, UpdateSourceTrigger=Explicit}"/>
         </UniformGrid>
        
         </TabItem>
         
-            <TabItem  Header=" Trenutno zaduzenje" FontSize=" 40">
+            <TabItem  Header=" Iznajmljeno" FontSize=" 40">
                 <DataGrid Name ="dgTrenutnoZ" FontSize=" 40"/>
             </TabItem>
         
-            <TabItem Header=" Novo zaduzenje" FontSize=" 40">
+            <TabItem Header=" Iznajmi" FontSize=" 40">
                 <StackPanel >
-                <DataGrid Name ="dgKnjige" FontSize=" 42"/>
+                <DataGrid Name ="dgIznajmiti" FontSize=" 42"/>
                 <UniformGrid Columns=" 2">
                     <Button Content="Dodaj" FontSize=" 42"/>
                         <Button Content=" Izbrisi" FontSize=" 42"/>
                     </UniformGrid>
-                    <DataGrid Name ="dgNovoZ" FontSize=" 42"/>
+                    <DataGrid Name ="dgIznajmljeno" FontSize=" 42"/>
                 </StackPanel>
+            </TabItem>
+            <TabItem Header=" Istorija" FontSize=" 40">
+                
             </TabItem>
         
     </TabControl>
 
         <UniformGrid Columns=" 2" DockPanel.Dock="Bottom" >
-            <Button Content=" Sacuvaj" FontSize=" 42"/>
-            <Button Content=" Izadji" FontSize ="42"/>
+            <Button Content=" Sacuvaj" FontSize=" 42" Click="Sacuvaj_Click"/>
+            <Button Content=" Izadji" FontSize ="42" Click="Izadji_Click"/>
 
         </UniformGrid>
     </DockPanel>

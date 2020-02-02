@@ -22,11 +22,35 @@ namespace Knjizara.Windows
         public Dodaj()
         {
             InitializeComponent();
+            clanTab.DataContext = new Clan();
+            knjigaTab.DataContext = new Knjiga();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        public void Sacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (clanTab.IsSelected)
+                {
+                    ugClan.BindingGroup.CommitEdit();
+                    DataContext = clanTab.DataContext;
+                    this.DialogResult = true;
+                    this.Close();   
+                }
+
+            if (knjigaTab.IsSelected )
+                {
+                    ugKnjiga.BindingGroup.CommitEdit();
+                    DataContext = knjigaTab.DataContext;
+                    this.DialogResult = true;
+                    this.Close();
+                }
+        }
+
+
+        private void Izadji_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+            this.Close();
         }
     }
 }

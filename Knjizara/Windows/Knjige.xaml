@@ -6,22 +6,25 @@
         xmlns:local="clr-namespace:Knjizara.Windows"
         mc:Ignorable="d"
         Title="Knjige" Height="450" Width="800">
+    <Window.BindingGroup>
+        <BindingGroup/>
+    </Window.BindingGroup>
     <DockPanel >
         <UniformGrid Columns=" 2" DockPanel.Dock="Top" >
             <Label Content="Naziv"  FontSize=" 40"/>
-            <TextBox FontSize=" 40" />
+            <TextBox FontSize=" 40" Text ="{ Binding  Naziv, UpdateSourceTrigger=Explicit}"/>
             <Label Content="Autor" FontSize=" 40"/>
-            <TextBox  FontSize=" 40" />
+            <TextBox  FontSize=" 40" Text ="{ Binding  Autor, UpdateSourceTrigger=Explicit}"/>
             <Label Content="Godina izdavanja" FontSize=" 40"/>
-            <TextBox  FontSize=" 40" />
+            <TextBox  FontSize=" 40" Text ="{ Binding  GodIzdavanja, UpdateSourceTrigger=Explicit}"/>
             <Label Content="ISBN" FontSize=" 40"/>
-            <TextBox  FontSize=" 40" />
+            <TextBox  FontSize=" 40" Text ="{ Binding  ISBN, UpdateSourceTrigger=Explicit}"/>
             <Label Content=" Kolicina" FontSize=" 40"/>
-            <TextBox FontSize ="40" />
+            <TextBox FontSize ="40" Text ="{ Binding  Kolicina, UpdateSourceTrigger=Explicit}"/>
         </UniformGrid>
         <UniformGrid Columns=" 2" DockPanel.Dock="Bottom" >
-            <Button Content=" Sacuvaj" FontSize ="42"/>
-            <Button Content=" Izadji" FontSize=" 42"/>
+            <Button Content=" Sacuvaj" FontSize ="42" Click="Sacuvaj_Click"/>
+            <Button Content=" Izadji" FontSize=" 42" Click="Izadji_Click"/>
         </UniformGrid>
        
     </DockPanel>

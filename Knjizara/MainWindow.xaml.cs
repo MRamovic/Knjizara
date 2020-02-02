@@ -23,29 +23,111 @@ namespace Knjizara
     public partial class MainWindow : Window
     {
         Baza NB = new Baza();
+        public DataGrid aktivniGrid;
+       
+
         public MainWindow()
         {
             InitializeComponent();
             NB.dbClanovi.ToList();
             NB.dbKnjige.ToList();
-            //NB.dbClanovi.Add(new Clan("Mirza", "Ramovic", "066"));
-            //NB.dbClanovi.Add(new Clan("Pera", "Peric", "063"));
-            //NB.dbKnjige.Add(new Knjiga("Rad i mir", "Tolstoj", "1953","SAD1254522", 10));
-            //NB.dbKnjige.Add(new Knjiga("Kockar", "Dostojevski", "1984","SKJ844578", 20));
-
-           NB.SaveChanges();  //Cuvamo podatke u bazu
+            NB.SaveChanges();  //Cuvamo podatke u bazu
 
             dgClan.ItemsSource = NB.dbClanovi.Local;
             dgKnjiga.ItemsSource = NB.dbKnjige.Local;
 
         }
 
-
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
             Dodaj novoDodaj = new Dodaj();
-            novoDodaj.Visibility = Visibility.Visible;
+            novoDodaj.Owner = this;
 
+            if (novoDodaj.ShowDialog() == true)
+            {
+
+                if (novoDodaj.DataContext is Clan c)
+                    NB.dbClanovi.Add(c);
+
+                else if (novoDodaj.DataContext is Knjiga k)
+                    NB.dbKnjige.Add(k);
+                    NB.SaveChanges();
+            }
+
+        }
+
+
+        private void dgClan_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Clanovi noviClan = new Clanovi();
+            noviClan.Owner = this;
+            noviClan.DataContext = dgClan.SelectedItem;
+
+            if (noviClan.ShowDialog() == true)
+            {
+                NB.SaveChanges();
+                NB = new Baza();
+                dgClan.ItemsSource = NB.dbClanovi.ToList();
+            }
+        }
+
+        private void dgKnjiga_MouseDoubleClick(object sender, MouseButtonEventArgs e)  
+        {
+            Knjige novaKnjiga = new Knjige();
+            novaKnjiga.Owner = this;
+            novaKnjiga.DataContext = dgKnjiga.SelectedItem;
+
+            if (novaKnjiga.ShowDialog() == true)
+            {
+                NB.SaveChanges();
+                NB = new Baza();
+                dgKnjiga.ItemsSource = NB.dbKnjige.ToList();
+            }
+        }
+
+
+        private void Izadji_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void Izmeni_Click(object sender, RoutedEventArgs e)    //Izmena postojecih korisnika i knjiga
+        {
+
+            if (dgKnjiga.SelectedItem != null)
+            {
+                Knjige nk = new Knjige();
+                nk.Owner = this;
+                nk.DataContext = dgKnjiga.SelectedItem;
+                if (nk.ShowDialog() == true)
+                NB.SaveChanges();
+            } 
+            else if  (dgClan.SelectedItem != null)
+             {
+                ClanProfil  nc = new ClanProfil();
+                nc.Owner = this;
+                nc.DataContext = dgClan.SelectedItem;
+                if (nc.ShowDialog() == true)
+                NB.SaveChanges();
+             }
+        }
+
+
+        private void Izbrisi_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgClan.SelectedItem !=null)
+            {
+                NB.dbClanovi.Remove(dgClan.SelectedItem as Clan);
+                NB.SaveChanges();
+            }
+
+            else if (dgKnjiga.SelectedItem !=null)
+            {
+                NB.dbKnjige.Remove(dgKnjiga.SelectedItem as Knjiga);
+                NB.SaveChanges();
+
+            }
         }
     }
 }
