@@ -11,7 +11,7 @@
     </Window.BindingGroup>
     <DockPanel >
     <TabControl DockPanel.Dock="Top" >
-        <TabItem Header=" Info" FontSize=" 40">
+        <TabItem Name="infoTab" Header=" Info" FontSize=" 40">
     
         <UniformGrid Columns=" 2" DockPanel.Dock="Top" >
             <Label Content="Ime" FontSize=" 40"/>
@@ -26,21 +26,21 @@
        
         </TabItem>
         
-            <TabItem  Header=" Iznajmljeno" FontSize=" 40">
+            <TabItem Name="iznajmljenoTab" Header=" Iznajmljeno" FontSize=" 40">
                 <DataGrid Name ="dgTrenutnoZ" FontSize=" 40"/>
             </TabItem>
         
-            <TabItem Header=" Iznajmi" FontSize=" 40">
+            <TabItem Name="iznajmiTab" Header=" Iznajmi" FontSize=" 40">
                 <StackPanel >
                 <DataGrid Name ="dgIznajmiti" FontSize=" 42"/>
                 <UniformGrid Columns=" 2">
-                    <Button Content="Dodaj" FontSize=" 42"/>
-                        <Button Content=" Izbrisi" FontSize=" 42"/>
+                    <Button Content="Dodaj" FontSize=" 42" Click ="Dodaj_Click"/>
+                        <Button Content=" Izbrisi" FontSize=" 42" Click="Izbrisi_Click"/>
                     </UniformGrid>
                     <DataGrid Name ="dgIznajmljeno" FontSize=" 42"/>
                 </StackPanel>
             </TabItem>
-            <TabItem Header=" Istorija" FontSize=" 40">
+            <TabItem Name="istorijaTab" Header=" Istorija" FontSize=" 40">
                 
             </TabItem>
         

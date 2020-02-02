@@ -12,6 +12,7 @@ namespace Knjizara
     {
         public DbSet<Clan> dbClanovi { get; set; }
         public DbSet<Knjiga> dbKnjige { get; set; }
+        //public DbSet<Knjiga> dbIznajmljeno { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
 
         {

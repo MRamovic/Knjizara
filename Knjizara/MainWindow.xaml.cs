@@ -1,6 +1,7 @@
 ﻿using Knjizara.Windows;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,45 @@ namespace Knjizara
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         Baza NB = new Baza();
-        public DataGrid aktivniGrid;
-       
+
+        private string pretraga;    
+
+        public string Pretraga
+        {
+            get => pretraga;
+            set
+            {
+                pretraga = value;
+
+                NB = new Baza();
+
+                if (string.IsNullOrEmpty(pretraga) || string.IsNullOrWhiteSpace(pretraga))
+                {
+                    dgClan.ItemsSource = NB.dbClanovi.ToList();
+                    dgKnjiga.ItemsSource = NB.dbKnjige.ToList();
+                }
+                else
+                {
+                    if (ClanTab.IsSelected)
+
+                    {
+                        dgClan.ItemsSource = NB.dbClanovi.Where(c => c.Ime.ToLower().Contains(pretraga.ToLower()) ||
+                                                                     c.Prezime.ToLower().Contains(pretraga.ToLower()) ||
+                                                                     c.Kontakt.ToLower().Contains(pretraga.ToLower())).ToList();
+                    }
+
+                    else if (KnjigaTab.IsSelected)
+                    {
+                        dgKnjiga.ItemsSource = NB.dbKnjige.Where(v => v.Naziv.ToLower().Contains(pretraga.ToLower()) ||
+                                                                      v.Autor.ToLower().Contains(pretraga.ToLower()) ||
+                                                                      v.ISBN.ToLower().Contains(pretraga.ToLower()) ||
+                                                                      v.GodIzdavanja.ToLower().Contains(pretraga.ToLower())).ToList();
+                    }
+                }
+            }
+        }
 
         public MainWindow()
         {

@@ -19,11 +19,16 @@ namespace Knjizara.Windows
     /// </summary>
     public partial class Clanovi : Window
     {
-       
+        Baza NBK = new Baza();
+        Knjiga NK = new Knjiga();
+        
 
         public Clanovi()
         {
-            InitializeComponent();  
+            InitializeComponent();
+            NBK.dbKnjige.ToList();
+            NBK.SaveChanges();
+            dgIznajmiti.ItemsSource = NBK.dbKnjige.Local;
         }
 
 
@@ -40,6 +45,24 @@ namespace Knjizara.Windows
             this.DialogResult = true;
             this.Close();
             
+
+        }
+
+        private void Dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            // dgIznajmljeno.ItemsSource= dgIznajmljeno.SelectedItem;
+            
+            NK = dgIznajmiti.SelectedItem as Knjiga;
+            (dgIznajmiti.SelectedItem as Knjiga).Kolicina -=1;
+            NBK.SaveChanges();
+            NBK.dbKnjige.Remove(dgIznajmiti.SelectedItem as Knjiga);
+            
+            
+
+        }
+
+        private void Izbrisi_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
