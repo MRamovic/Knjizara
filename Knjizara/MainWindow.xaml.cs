@@ -26,8 +26,8 @@ namespace Knjizara
         
         Baza NB = new Baza();
 
-        private string pretraga;    
-
+        private string pretraga;
+        
         public string Pretraga
         {
             get => pretraga;
@@ -49,7 +49,8 @@ namespace Knjizara
                     {
                         dgClan.ItemsSource = NB.dbClanovi.Where(c => c.Ime.ToLower().Contains(pretraga.ToLower()) ||
                                                                      c.Prezime.ToLower().Contains(pretraga.ToLower()) ||
-                                                                     c.Kontakt.ToLower().Contains(pretraga.ToLower())).ToList();
+                                                                     c.Kontakt.ToLower().Contains(pretraga.ToLower()) ||
+                                                                     c.Email.ToLower().Contains(pretraga.ToLower())).ToList();
                     }
 
                     else if (KnjigaTab.IsSelected)
@@ -65,6 +66,7 @@ namespace Knjizara
 
         public MainWindow()
         {
+            
             InitializeComponent();
             NB.dbClanovi.ToList();
             NB.dbKnjige.ToList();
@@ -72,6 +74,7 @@ namespace Knjizara
 
             dgClan.ItemsSource = NB.dbClanovi.Local;
             dgKnjiga.ItemsSource = NB.dbKnjige.Local;
+            txtPretraga.DataContext = this;
 
         }
 
@@ -165,6 +168,13 @@ namespace Knjizara
                 NB.SaveChanges();
 
             }
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            Login noviLogin = new Login();
+            noviLogin.Owner = this;
+            noviLogin.Visibility = Visibility.Visible; 
         }
     }
 }

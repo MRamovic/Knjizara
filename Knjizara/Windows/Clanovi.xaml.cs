@@ -28,7 +28,9 @@ namespace Knjizara.Windows
             InitializeComponent();
             NBK.dbKnjige.ToList();
             NBK.SaveChanges();
-            dgIznajmiti.ItemsSource = NBK.dbKnjige.Local;
+            dgIznajmiti.ItemsSource = NBK.dbKnjige.ToList();
+            
+           
         }
 
 
@@ -49,13 +51,16 @@ namespace Knjizara.Windows
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
-        {
-            // dgIznajmljeno.ItemsSource= dgIznajmljeno.SelectedItem;
+        { 
             
-            NK = dgIznajmiti.SelectedItem as Knjiga;
+            //NK = dgIznajmiti.SelectedItem as Knjiga;
+            //NBK.dbIznajmljena.Add(dgIznajmiti.SelectedItem as IznajmljenaKnjiga);
+            
+            
             (dgIznajmiti.SelectedItem as Knjiga).Kolicina -=1;
             NBK.SaveChanges();
-            NBK.dbKnjige.Remove(dgIznajmiti.SelectedItem as Knjiga);
+            dgIznajmiti.ItemsSource = NBK.dbKnjige.Where(k => k.Kolicina !=0).ToList();
+           // NBK.dbKnjige.Remove(dgIznajmiti.SelectedItem as Knjiga);
             
             
 

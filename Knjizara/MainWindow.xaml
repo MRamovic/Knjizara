@@ -6,22 +6,24 @@
         xmlns:local="clr-namespace:Knjizara"
         mc:Ignorable="d"
         Title="MainWindow" Height="574.944" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource=" C:\Users\Mirza\Source\Repos\Knjizara\Knjizara\image\books.jpg" />
+    </Window.Background>
     <DockPanel  >
         <StackPanel DockPanel.Dock="Top" >
-            
-            
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
-                
-                    <Button Content="Dodaj" FontSize=" 42" Margin=" 20,0" Click="Dodaj_Click" />
-                <Button Content=" Izmeni" FontSize ="42" Margin="20,0" Click="Izmeni_Click"/>
-                <Button Content="Izbrisi" FontSize=" 42" Margin=" 20,0" Click="Izbrisi_Click"/>
-                <Button Content="Izadji" FontSize=" 42" Margin=" 20,0" Click="Izadji_Click"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"   >
+
+                <Button Content="Dodaj" FontSize=" 42" Margin=" 20,0" Click="Dodaj_Click" />
+                <Button Content=" Izmeni" FontSize ="42" Margin="20,0" Click="Izmeni_Click" />
+                <Button Content="Izbrisi" FontSize=" 42" Margin=" 20,0" Click="Izbrisi_Click" />
+                <Button Content="Izadji" FontSize=" 42" Margin=" 20,0" Click="Izadji_Click"  />
                 
             </StackPanel>
 
             <UniformGrid Columns="2" DockPanel.Dock="Top"  Margin=" 0,10">
 
-                <Label Content="Pretraga " FontSize=" 42 " Margin="0,0,4.8,0"/>
+                <Label Content="Pretraga: " FontSize=" 42 " Margin="0,0,4.8,0" HorizontalAlignment="Right" />
                 <TextBox Name="txtPretraga" Text="{Binding Pretraga,UpdateSourceTrigger=PropertyChanged}"  FontSize=" 42"  />
 
             </UniformGrid>
