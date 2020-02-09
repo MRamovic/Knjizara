@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Klase\Iznajmljivanje.cs" />
+    <Compile Include="Klase\Kolekcija.cs" />
     <Compile Include="Klase\Zaposlen.cs" />
     <Compile Include="Windows\Clanovi.xaml.cs">
       <DependentUpon>Clanovi.xaml</DependentUpon>

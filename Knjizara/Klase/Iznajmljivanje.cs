@@ -9,9 +9,9 @@ namespace Knjizara.Klase
 {
     public class Iznajmljivanje
     {
-        
+      
        public Clan iznajmljenClan { get; set; } = new Clan();
-       public List<Knjiga> iznajmljeneKnjiga { get; set; } = new List<Knjiga>();
+       public List<Knjiga> iznajmljeneKnjige { get; set; } = new List<Knjiga>();
        public DateTime kadIznajmljena { get; set; } = DateTime.Now;
        public TimeSpan rokVracanja { get; set; }
        public DateTime kadVracena { get; set; }
@@ -19,7 +19,7 @@ namespace Knjizara.Klase
          public Iznajmljivanje(Clan c,List<Knjiga> sveKnjige,int RV) 
         {
             iznajmljenClan = c;
-            iznajmljeneKnjiga.AddRange(sveKnjige);
+            iznajmljeneKnjige.AddRange(sveKnjige);
             rokVracanja = new TimeSpan(RV, 0, 0, 0);
         }
 

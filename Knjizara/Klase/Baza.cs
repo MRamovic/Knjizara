@@ -18,9 +18,10 @@ namespace Knjizara
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
 
         {
-            modelBuilder.Entity<Clan>().HasKey(p => p.ID);      //PK za ID korisnika
-            modelBuilder.Entity<Knjiga>().HasKey(k => k.ISBN);  //PK za ISBN knjige
+            modelBuilder.Entity<Clan>().HasKey(p => p.ID);      
+            modelBuilder.Entity<Knjiga>().HasKey(k => k.ISBN);  
             modelBuilder.Entity<Zaposlen>().HasKey(z => z.ID);
+            modelBuilder.Entity<Iznajmljivanje>().HasKey(e => new { e.iznajmljenClan.ID,  });           
 
 
         }
