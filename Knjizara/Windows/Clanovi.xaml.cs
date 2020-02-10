@@ -24,13 +24,13 @@ namespace Knjizara.Windows
         Baza NBK = new Baza();
         Knjiga NK = new Knjiga();
         Istorija ist = new Istorija();
-        Iznajmljivanje  r = new Iznajmljivanje ();
+        Iznajmljivanje r = new Iznajmljivanje();
 
 
         public Clanovi()
         {
             InitializeComponent();
-            DataContext = this;
+           
             NBK.dbKnjige.ToList();
             NBK.SaveChanges();
             dgIznajmiti.ItemsSource = NBK.dbKnjige.ToList();
@@ -59,14 +59,29 @@ namespace Knjizara.Windows
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
 
-            //NK = dgIznajmiti.SelectedItem as Knjiga;
-            //NBK.dbIznajmljena.Add(dgIznajmiti.SelectedItem as IznajmljenaKnjiga);
             if (dgIznajmiti.SelectedItem != null)
+            {
                 if (!dgIznajmljeno.Items.Contains(dgIznajmiti.SelectedItem))
+                {
                     r.iznajmljeneKnjige.Add(dgIznajmiti.SelectedItem as Knjiga);
+                }
+                else
+                    MessageBox.Show("Knjiga je dodata!");
+            }
+            else
+                MessageBox.Show("Izaberite knjigu!");
+
+
+           
+            //if (dgIznajmiti.SelectedItem != null)
+            //    if (!dgIznajmljeno.Items.Contains(dgIznajmiti.SelectedItem))
+            //        r.iznajmljeneKnjige.Add(dgIznajmiti.SelectedItem as Knjiga);
             
 
-            
+
+
+            //NK = dgIznajmiti.SelectedItem as Knjiga;
+
             //(dgIznajmiti.SelectedItem as Knjiga).Kolicina -=1;
             //NBK.SaveChanges();
             //dgIznajmiti.ItemsSource = NBK.dbKnjige.Where(k => k.Kolicina != 0).ToList();

@@ -32,12 +32,12 @@
         
             <TabItem Name="iznajmiTab" Header=" Iznajmi" FontSize=" 40">
                 <StackPanel >
-                <DataGrid Name ="dgIznajmiti" FontSize=" 42"/>
+                <DataGrid Name ="dgIznajmiti" FontSize=" 42" IsReadOnly="True" SelectionMode="Single" ColumnWidth="*" />
                 <UniformGrid Columns=" 2">
                     <Button Content="Dodaj" FontSize=" 42" Click ="Dodaj_Click"/>
                         <Button Content=" Izbrisi" FontSize=" 42" Click="Izbrisi_Click"/>
                     </UniformGrid>
-                    <DataGrid Name ="dgIznajmljeno" FontSize=" 42"/>
+                    <DataGrid Name ="dgIznajmljeno" FontSize=" 42" IsReadOnly="True" SelectionMode="Single" ColumnWidth=" *"/>
                 </StackPanel>
             </TabItem>
             <TabItem Name="istorijaTab" Header=" Istorija" FontSize=" 40">

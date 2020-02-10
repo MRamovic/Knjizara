@@ -9,7 +9,7 @@ namespace Knjizara.Klase
 {
     public class Iznajmljivanje
     {
-      
+       public int ID { get; set; }
        public Clan iznajmljenClan { get; set; } = new Clan();
        public List<Knjiga> iznajmljeneKnjige { get; set; } = new List<Knjiga>();
        public DateTime kadIznajmljena { get; set; } = DateTime.Now;
@@ -21,6 +21,11 @@ namespace Knjizara.Klase
             iznajmljenClan = c;
             iznajmljeneKnjige.AddRange(sveKnjige);
             rokVracanja = new TimeSpan(RV, 0, 0, 0);
+        }
+
+        public Iznajmljivanje (List<Knjiga> sveKnjige)
+        {
+            iznajmljeneKnjige = sveKnjige;
         }
 
     }

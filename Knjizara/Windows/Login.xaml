@@ -17,7 +17,7 @@
             <Label Content=" Password:" FontSize=" 30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin=" 10,5"/>
             <PasswordBox x:Name="txtPassword" FontSize=" 30" Margin=" 10,5"/>
             <Button Name="btnLogin"  Content=" Login" FontSize=" 30" Width="140" Margin=" 10,5" Click="btnLogin_Click"/>
-            <Button  Content=" Izadji" FontSize=" 30" Width="140" Margin=" 10,5" Click="Button_Click"/>
+            <Button  Content=" Exit" FontSize=" 30" Width="140" Margin=" 10,5" Click="Button_Click"/>
         </UniformGrid>
     </StackPanel>
 </Window>
