@@ -37,7 +37,7 @@
                     <Button Content="Dodaj" FontSize=" 42" Click ="Dodaj_Click"/>
                         <Button Content=" Izbrisi" FontSize=" 42" Click="Izbrisi_Click"/>
                     </UniformGrid>
-                    <DataGrid Name ="dgIznajmljeno" FontSize=" 42" IsReadOnly="True" SelectionMode="Single" ColumnWidth=" *"/>
+                    <DataGrid Name ="dgIznajmljeno" FontSize=" 42" IsReadOnly="True" SelectionMode="Single" ColumnWidth=" *" />
                 </StackPanel>
             </TabItem>
             <TabItem Name="istorijaTab" Header=" Istorija" FontSize=" 40">

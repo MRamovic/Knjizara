@@ -25,6 +25,7 @@ namespace Knjizara.Windows
         Knjiga NK = new Knjiga();
         Istorija ist = new Istorija();
         Iznajmljivanje r = new Iznajmljivanje();
+        
 
 
         public Clanovi()
@@ -35,6 +36,7 @@ namespace Knjizara.Windows
             NBK.SaveChanges();
             dgIznajmiti.ItemsSource = NBK.dbKnjige.ToList();
             dgIznajmljeno.ItemsSource = r.iznajmljeneKnjige;
+            dgTrenutnoZ.ItemsSource = NBK.dbIznajmljeno.ToList();
             
            
         }
@@ -49,9 +51,21 @@ namespace Knjizara.Windows
 
         private void Sacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            this.BindingGroup.CommitEdit();
-            this.DialogResult = true;
-            this.Close();
+            if(infoTab.IsSelected)
+            {
+                this.BindingGroup.CommitEdit();
+                this.DialogResult = true;
+                this.Close();
+            }
+            if(iznajmiTab.IsSelected )
+            {
+                NBK.dbIznajmljeno.Add(new Iznajmljivanje(infoTab.DataContext as Clan, r.iznajmljeneKnjige, 7));
+                
+                
+                
+            }
+            
+            
             
 
         }
