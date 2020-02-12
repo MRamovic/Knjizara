@@ -21,7 +21,7 @@ namespace Knjizara.Windows
     /// </summary>
     public partial class Clanovi : Window
     {
-        Baza NBK = new Baza();
+        public Baza NBK = new Baza();
         Knjiga NK = new Knjiga();
         Istorija ist = new Istorija();
         Iznajmljivanje r = new Iznajmljivanje();
@@ -31,14 +31,19 @@ namespace Knjizara.Windows
         public Clanovi()
         {
             InitializeComponent();
-           
+
             NBK.dbKnjige.ToList();
-            NBK.SaveChanges();
+            NBK.dbClanovi.ToList();
             dgIznajmiti.ItemsSource = NBK.dbKnjige.ToList();
+
             dgIznajmljeno.ItemsSource = r.iznajmljeneKnjige;
-            dgTrenutnoZ.ItemsSource = NBK.dbIznajmljeno.ToList();
-            
-           
+            Clan test = DataContext as Clan;
+            List<Knjiga> tK = new List<Knjiga>();
+            NBK.dbIznajmljeno.Where(izm => izm.kadVracena == null && izm.iznajmljenClan.Equals(test))
+                .ToList().ForEach(izn => tK.AddRange(izn.iznajmljeneKnjige));
+
+            dgTrenutnoZ.ItemsSource = tK;
+
         }
 
 
@@ -60,13 +65,10 @@ namespace Knjizara.Windows
             if(iznajmiTab.IsSelected )
             {
                 NBK.dbIznajmljeno.Add(new Iznajmljivanje(infoTab.DataContext as Clan, r.iznajmljeneKnjige, 7));
-                
-                
-                
+                NBK.SaveChanges ();
+                this.Close();
             }
-            
-            
-            
+  
 
         }
 
@@ -78,27 +80,14 @@ namespace Knjizara.Windows
                 if (!dgIznajmljeno.Items.Contains(dgIznajmiti.SelectedItem))
                 {
                     r.iznajmljeneKnjige.Add(dgIznajmiti.SelectedItem as Knjiga);
+                    dgIznajmljeno.ItemsSource = null;
+                    dgIznajmljeno.ItemsSource = r.iznajmljeneKnjige;
                 }
                 else
                     MessageBox.Show("Knjiga je dodata!");
             }
             else
                 MessageBox.Show("Izaberite knjigu!");
-
-
-           
-            //if (dgIznajmiti.SelectedItem != null)
-            //    if (!dgIznajmljeno.Items.Contains(dgIznajmiti.SelectedItem))
-            //        r.iznajmljeneKnjige.Add(dgIznajmiti.SelectedItem as Knjiga);
-            
-
-
-
-            //NK = dgIznajmiti.SelectedItem as Knjiga;
-
-            //(dgIznajmiti.SelectedItem as Knjiga).Kolicina -=1;
-            //NBK.SaveChanges();
-            //dgIznajmiti.ItemsSource = NBK.dbKnjige.Where(k => k.Kolicina != 0).ToList();
 
         }
 

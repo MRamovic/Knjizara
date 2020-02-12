@@ -31,6 +31,7 @@ namespace Knjizara
             Kontakt = k;
             Email = e;
         }
-
+        public override string ToString() => $"{Ime} {Prezime }";
+        
     }
 }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="574.944" Width="800">
     <Window.Background>
-        <ImageBrush ImageSource=" C:\Users\Mirza\Source\Repos\Knjizara\Knjizara\image\books.jpg" />
+        <ImageBrush ImageSource="image\books.jpg" />
     </Window.Background>
     <DockPanel  >
         <StackPanel DockPanel.Dock="Top" >

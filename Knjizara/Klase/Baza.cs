@@ -22,7 +22,7 @@ namespace Knjizara
             modelBuilder.Entity<Knjiga>().HasKey(k => k.ISBN);  
             modelBuilder.Entity<Zaposlen>().HasKey(z => z.ID);
             modelBuilder.Entity<Iznajmljivanje>().HasKey(l => l.ID);
-
+            modelBuilder.Entity<Iznajmljivanje>().HasMany(l => l.iznajmljeneKnjige);
 
         }
     }
